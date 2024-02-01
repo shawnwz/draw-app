@@ -1,7 +1,7 @@
 function mirrorDrawTool() {
 	this.name = "mirrorDraw";
 	this.icon = "assets/mirrorDraw.jpg";
-
+	this.strokeWeight = 1;
 	//which axis is being mirrored (x or y) x is default
 	this.axis = "x";
 	//line of symmetry is halfway across the screen
@@ -23,7 +23,7 @@ function mirrorDrawTool() {
 	this.draw = function() {
 		//display the last save state of pixels
 		updatePixels();
-
+		strokeWeight(this.strokeWeight);
 		//do the drawing if the mouse is pressed
 		if (mouseIsPressed) {
 			//if the previous values are -1 set them to the current mouse location
@@ -113,14 +113,22 @@ function mirrorDrawTool() {
 	this.unselectTool = function() {
 		updatePixels();
 		//clear options
-		select(".options").html("");
+		select(".options").html("<div class=\"strokeweight-selector\">\n" +
+				"            <p>Stroke Weight</p>\n" +
+				"            <dropdown-list options='[{\"value\": \"1\", \"text\": \"1\"}, {\"value\": \"2\", \"text\": \"2\"}, {\"value\": \"3\", \"text\": \"3\"}, {\"value\": \"4\", \"text\": \"4\"}]'></dropdown-list>\n" +
+				"          </div>");
+
 	};
 
 	//adds a button and click handler to the options area. When clicked
 	//toggle the line of symmetry between horizonatl to vertical
 	this.populateOptions = function() {
 		select(".options").html(
-			"<button id='directionButton'>Make Horizontal</button>");
+			"<div class=\"strokeweight-selector\">\n" +
+				"            <p>Stroke Weight</p>\n" +
+				"            <dropdown-list options='[{\"value\": \"1\", \"text\": \"1\"}, {\"value\": \"2\", \"text\": \"2\"}, {\"value\": \"3\", \"text\": \"3\"}, {\"value\": \"4\", \"text\": \"4\"}]'></dropdown-list>\n" +
+				"          </div>" +
+				"<button id='directionButton'>Make Horizontal</button>");
 		// 	//click handler
 		select("#directionButton").mouseClicked(function() {
 			var button = select("#" + this.elt.id);

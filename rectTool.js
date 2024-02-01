@@ -4,6 +4,7 @@
 function RectAngleTool(){
   this.icon = "assets/rectangle.png";
   this.name = "Rectangle";
+  this.strokeWeight = 1;
 
   var startMouseX = -1;
   var startMouseY = -1;
@@ -21,6 +22,7 @@ function RectAngleTool(){
         drawing = true;
         //save the current pixel Array
         loadPixels();
+        strokeWeight(this.strokeWeight);
       }
 
       else{
@@ -42,26 +44,6 @@ function RectAngleTool(){
       startMouseX = -1;
       startMouseY = -1;
     }
-  };
-
-  //adds a button and click handler to the options area. When clicked
-  //toggle the line of symmetry between horizonatl to vertical
-  this.populateOptions = function() {
-    select(".options").html(
-        "<button id='directionButton'>Make Horizontal</button>");
-    // 	//click handler
-    select("#directionButton").mouseClicked(function() {
-      var button = select("#" + this.elt.id);
-      if (self.axis == "x") {
-        self.axis = "y";
-        self.lineOfSymmetry = height / 2;
-        button.html('Make Vertical');
-      } else {
-        self.axis = "x";
-        self.lineOfSymmetry = width / 2;
-        button.html('Make Horizontal');
-      }
-    });
   };
 
 

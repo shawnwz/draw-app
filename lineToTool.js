@@ -4,22 +4,14 @@
 function LineToTool(){
 	this.icon = "assets/lineTo.jpg";
 	this.name = "LineTo";
+	this.strokeWeight = 1;
 
 	var startMouseX = -1;
 	var startMouseY = -1;
 	var drawing = false;
 
 
-	var sw = 1;
-	const dropdownList = document.querySelector('dropdown-list');
 
-	// 监听自定义事件
-	dropdownList.addEventListener('selectionChange', (event) => {
-		const selectedValue = event.detail.selectedValue;
-		console.log('Selected value:', selectedValue);
-		sw = selectedValue;
-		// 在这里你可以将 selectedValue 设置为你需要的变量
-	});
 
 	//draws the line to the screen 
 	this.draw = function(){
@@ -38,7 +30,7 @@ function LineToTool(){
 				//update the screen with the saved pixels to hide any previous
 				//line between mouse pressed and released
 				updatePixels();
-				strokeWeight(sw);
+				strokeWeight(this.strokeWeight);
 				//draw the line
 				line(startMouseX, startMouseY, mouseX, mouseY);
 			}

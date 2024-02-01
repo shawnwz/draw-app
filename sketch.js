@@ -29,12 +29,26 @@ function setup() {
 	toolbox.addTool(new mirrorDrawTool());
 	toolbox.addTool(new RectAngleTool());
 
-	strokeWeight(40);
+
 	background(255);
 
 }
 
 function draw() {
+	var sw = 10;
+	const dropdownList = document.querySelector('dropdown-list');
+
+	// 监听自定义事件
+	dropdownList.addEventListener('selectionChange', (event) => {
+		const selectedValue = event.detail.selectedValue;
+		console.log('Selected value:', selectedValue);
+		sw = selectedValue;
+		toolbox.selectedTool.strokeWeight = sw;
+		// 在这里你可以将 selectedValue 设置为你需要的变量
+	});
+
+	strokeWeight(1);
+
 	//call the draw function from the selected tool.
 	//hasOwnProperty is a javascript function that tests
 	//if an object contains a particular method or property
