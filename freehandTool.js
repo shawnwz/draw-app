@@ -11,6 +11,15 @@ function FreehandTool(){
 	var previousMouseX = -1;
 	var previousMouseY = -1;
 
+	const dropdownList = document.querySelector('dropdown-list');
+
+	// listen the self defined event
+	dropdownList.addEventListener('selectionChange', (event) => {
+		const selectedValue = event.detail.selectedValue;
+		console.log('Freehand Selected value:', selectedValue);
+		this.strokeWeight = selectedValue;
+		strokeWeight(this.strokeWeight);
+	});
 
 	this.draw = function(){
 		strokeWeight(this.strokeWeight);

@@ -7,6 +7,16 @@ function SprayCanTool(){
 	var points = 13;
 	var spread = 10;
 
+	const dropdownList = document.querySelector('dropdown-list');
+
+	// listen the self defined event
+	dropdownList.addEventListener('selectionChange', (event) => {
+		const selectedValue = event.detail.selectedValue;
+		console.log('SprayCan Selected value:', selectedValue);
+		this.strokeWeight = selectedValue;
+		strokeWeight(this.strokeWeight);
+	});
+
 	this.draw = function(){
 		var r = random(5,10);
 		if(mouseIsPressed){

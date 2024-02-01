@@ -10,6 +10,17 @@ function RectAngleTool(){
   var startMouseY = -1;
   var drawing = false;
 
+
+  const dropdownList = document.querySelector('dropdown-list');
+
+  // listen the self defined event
+  dropdownList.addEventListener('selectionChange', (event) => {
+    const selectedValue = event.detail.selectedValue;
+    console.log('Rect Selected value:', selectedValue);
+    this.strokeWeight = selectedValue;
+    strokeWeight(this.strokeWeight);
+  });
+
   //draws the rectangle to the screen
   this.draw = function(){
 
@@ -22,13 +33,13 @@ function RectAngleTool(){
         drawing = true;
         //save the current pixel Array
         loadPixels();
-        strokeWeight(this.strokeWeight);
       }
 
       else{
         //update the screen with the saved pixels to hide any previous
         //line between mouse pressed and released
         updatePixels();
+        strokeWeight(this.strokeWeight);
         fill(255);
         //draw the rectangle
         rect(startMouseX, startMouseY, mouseX-startMouseX, mouseY-startMouseY);

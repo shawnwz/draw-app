@@ -11,6 +11,15 @@ function LineToTool(){
 	var drawing = false;
 
 
+	const dropdownList = document.querySelector('dropdown-list');
+
+	// listen the self defined event
+	dropdownList.addEventListener('selectionChange', (event) => {
+		const selectedValue = event.detail.selectedValue;
+		console.log('lineTo Selected value:', selectedValue);
+		this.strokeWeight = selectedValue;
+		strokeWeight(this.strokeWeight);
+	});
 
 
 	//draws the line to the screen 

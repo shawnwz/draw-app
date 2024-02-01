@@ -4,7 +4,6 @@ var toolbox = null;
 var colourP = null;
 var helpers = null;
 
-
 function setup() {
 
 	//create a canvas to fill the content div from index.html
@@ -35,19 +34,19 @@ function setup() {
 }
 
 function draw() {
-	var sw = 10;
-	const dropdownList = document.querySelector('dropdown-list');
+	//var sw = 10;
+	// const dropdownList = document.querySelector('dropdown-list');
+	//
+	// // listen the self defined event
+	// dropdownList.addEventListener('selectionChange', (event) => {
+	// 	const selectedValue = event.detail.selectedValue;
+	// 	console.log('Selected value:', selectedValue);
+	// 	sw = selectedValue;
+	// 	toolbox.selectedTool.strokeWeight = sw;
+	// 	strokeWeight(sw);
+	// });
 
-	// 监听自定义事件
-	dropdownList.addEventListener('selectionChange', (event) => {
-		const selectedValue = event.detail.selectedValue;
-		console.log('Selected value:', selectedValue);
-		sw = selectedValue;
-		toolbox.selectedTool.strokeWeight = sw;
-		// 在这里你可以将 selectedValue 设置为你需要的变量
-	});
-
-	strokeWeight(1);
+	//strokeWeight(sw);
 
 	//call the draw function from the selected tool.
 	//hasOwnProperty is a javascript function that tests

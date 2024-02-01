@@ -4,21 +4,21 @@ class StrokeWeightDropdownList extends HTMLElement {
   constructor() {
     super();
 
-    // 获取模板内容
+    // get the template
     const template = document.getElementById("dropdown-list-template").content;
 
-    // 在 Shadow DOM 中创建一个实例
+    // create an instance in Shadow
     this.attachShadow({ mode: "open" }).appendChild(template.cloneNode(true));
 
-    // 获取下拉列表元素
+    // get the dropdown list options
     this.dropdownElement = this.shadowRoot.getElementById("dropdown");
   }
 
   connectedCallback() {
-    // 获取传递给自定义元素的选项属性
+    // obtain options from json
     const options = JSON.parse(this.getAttribute("options")) || [];
 
-    // 添加选项到下拉列表
+    // add options to the list
     options.forEach((option) => {
       const optionElement = document.createElement("option");
       optionElement.value = option.value;
@@ -36,5 +36,5 @@ class StrokeWeightDropdownList extends HTMLElement {
   }
 }
 
-// 定义自定义元素
+// declare the self defined element
 customElements.define("dropdown-list", StrokeWeightDropdownList);

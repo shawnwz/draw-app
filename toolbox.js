@@ -48,6 +48,15 @@ function Toolbox() {
 	};
 
 	this.selectTool = function(toolName) {
+
+		const dropdownList = document.querySelector('dropdown-list');
+		console.log(dropdownList);
+
+// 读取当前选择值
+		const selectedValue = dropdownList.selectedValue;
+
+// 打印或使用选择值
+		console.log('Selected value:', selectedValue);
 		//search through the tools for one that's name matches
 		//toolName
 		for (var i = 0; i < this.tools.length; i++) {
