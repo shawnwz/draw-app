@@ -1,5 +1,7 @@
 //Displays and handles the colour palette.
+
 function ColourPalette() {
+
 	//a list of web colour strings
 	this.colours = ["black", "silver", "gray", "white", "maroon", "red", "purple",
 		"orange", "pink", "fuchsia", "green", "lime", "olive", "yellow", "navy",
@@ -29,6 +31,8 @@ function ColourPalette() {
 
 	//load in the colours
 	this.loadColours = function() {
+
+		
 		//set the fill and stroke properties to be black at the start of the programme
 		//running
 		fill(this.colours[0]);
@@ -43,9 +47,14 @@ function ColourPalette() {
 			var colourSwatch = createDiv()
 			colourSwatch.class('colourSwatches');
 			colourSwatch.id(colourID);
-
-			select(".colourPalette").child(colourSwatch);
+			if (i<this.colours.length/2) {
+				select(".flex-up-row").child(colourSwatch);
+			} else {
+				select(".flex-down-row").child(colourSwatch);
+			}
+			//select(".flex-up-row").child(colourSwatch);
 			select("#" + colourID).style("background-color", this.colours[i]);
+			select("#" + colourID).style("border-radius","25px");
 			colourSwatch.mouseClicked(colourClick)
 		}
 

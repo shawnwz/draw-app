@@ -12,8 +12,11 @@ function setup() {
 	var c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
 	c.parent("content");
 
+
+
 	//create helper functions and the colour palette
 	helpers = new HelperFunctions();
+	colourPicker = new colourPicker();
 	colourP = new ColourPalette();
 
 	//create a toolbox for storing the tools
@@ -24,6 +27,9 @@ function setup() {
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new SprayCanTool());
 	toolbox.addTool(new mirrorDrawTool());
+	toolbox.addTool(new RectAngleTool());
+
+	strokeWeight(40);
 	background(255);
 
 }

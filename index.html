@@ -2,12 +2,13 @@
 <html>
   <head>
     <script src="lib/p5.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script> -->
     <script src="lib/p5.dom.js"></script>
-
     <script src="sketch.js"></script>
 
     <!-- add extra scripts below -->
     <script src="toolbox.js"></script>
+    <script src="colourPicker.js"></script>
     <script src="colourPalette.js"></script>
     <script src="helperFunctions.js"></script>
 
@@ -15,15 +16,55 @@
     <script src="lineToTool.js"></script>
     <script src="sprayCanTool.js"></script>
     <script src="mirrorDrawTool.js"></script>
+    <script src="rectTool.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-  	<div class="wrapper">
-      <div class="appBar" id="appbar">
-        test
+    <template id="dropdown-list-template">
+      <div>
+        <select id="dropdown"></select>
       </div>
-      <div class="box header">My Drawing App
+    </template>
+
+    <!-- 引入组件的 JavaScript 文件 -->
+    <script src="stroke-weight-dropdown-list.js"></script>
+  	<div class="wrapper">
+      <div class="header" id="header">
+        <div class="opt">
+          <button class="button" id="clearButton" title="Clear">
+            <img src="./assets/clear.png" />
+          </button>
+          <button class="button" id="saveImageButton" title="Save">
+            <img src="./assets/save.png" />
+          </button>
+        </div>
+        
+        <div class="divider"></div>
+        <div class="toolbox" id="toolbox"></div>
+        <div class="divider"></div>
+
+        <div class="options">
+          <div class="strokeweight-selector">
+            <p>Stroke Weight</p>
+            <dropdown-list options='[{"value": "1", "text": "1"}, {"value": "2", "text": "2"}, {"value": "3", "text": "3"}, {"value": "4", "text": "4"}]'></dropdown-list>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="colorContainter">
+          <div class="colourPicker"></div>
+          <div class="colourPalette">
+            <div class="flex-up-row">
+            </div>
+            <div class="flex-down-row">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="content" id="content"></div>
+      
+      <!-- <div class="box header">My Drawing App
 
         <button id="clearButton">Clear</button>
         <button id="saveImageButton">Save Image</button>
@@ -31,7 +72,20 @@
       <div class="box" id="sidebar"></div>
       <div id="content"></div>
       <div class="box colourPalette"></div>
-      <div class="box options"></div>
+      <div class="box options"></div> -->
+
 	</div>
+
+    <script>
+      // 获取自定义元素
+      const dropdownList = document.querySelector('dropdown-list');
+
+      // 监听自定义事件
+      dropdownList.addEventListener('selectionChange', (event) => {
+        const selectedValue = event.detail.selectedValue;
+        console.log('Selected value:', selectedValue);
+        // 在这里你可以将 selectedValue 设置为你需要的变量
+      });
+    </script>
   </body>
 </html>

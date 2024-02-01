@@ -3,83 +3,113 @@ html, body {
   height: 100%;
 }
 
-.appBar {
-	width: auto;
-	height: 20%;
-	background-color: bisque;
+.wrapper {
+	height: 100%;
+	width: 100%;
 }
 
-#sidebar {
-	grid-area: sidebar;
-	overflow-y: scroll;
-}
-
-#content {
-	grid-area: content;
+.divider {
+	height: 76px;
+    margin: 10px 4px;
+    background-color: rgba(255, 255, 255, 1);
+	display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    width: 2px;
 }
 
 .header {
-	grid-area: header;
-	font-family: Helvetica, sans-serif
+	padding: 0;
+	white-space: nowrap;
+	overflow-x: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	background-color: bisque;
+	height: 10%;
+	width: 100%;
 }
 
-.footer{
-  grid-area: footer;
+.opt {
+	padding-left: 5px;
+	display: flex;
+	flex-direction: row;
 }
 
-.sideBarItem{
-	max-height: 50px;
-	max-width: 50px;
-	padding:5px;
+.button{
+	display:inline-block;
+	background: none;
+	width: 30px;
+	height: 30px;
+	border: none;
 }
 
-.sideBarItem img{
+.button img {
+    width: 30px;
+    height: 30px;
+}
+
+.content {
+	display: block;
+	height: 90%;
+}
+
+/* #content {
+	display: block;
+	height: 90%;
+} */
+
+.toolbox {
+	display: flex;
+	flex-direction: row;
+}
+
+.toolBarItem img{
 	max-height: 50px;
 	max-Width:50px;
 }
 
-.colourPalette{
-	grid-area: colourP;
-	display:flex;
-	flex-direction:grid;
-	flex-flow: wrap;
+.colorContainter {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
 }
 
-.options{
-	grid-area: options;
-	padding: 15px;
+.colourPicker {
+	display: inline-block;
+	height: 100%;
+	width: 100px;
 }
 
-.colourSwatches{
+.colourPalette {
+	display: flex;
+	flex-direction: column;
+	height: 96%;
+  padding: 10px;
+}
+
+.flex-up-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-down-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.colourSwatches {
 	box-sizing: border-box;
-	width: 40px;
-	height: 40px;
-	max-height: 40px;
-	max-width: 40px;
+	width: 30px;
+	height: 30px;
+	max-height: 30px;
+	max-width: 30px;
 	margin: 5px;
 }
 
-
-	.wrapper {
-		display: grid;
-		height: 100%;
-		grid-template-columns: 70px 230px  minmax(500px, 1fr);
-		grid-template-rows: 35px minmax(500px, 1fr) 160px;
-		grid-template-areas:
-               "header header header"
-				"sidebar content content"
-                "colourP colourP options";
-		background-color: #fff;
-		color: #444;
-	}
-.box {
-  background-color: #444;
-  color: #fff;
-  font-size: 150%;
+.strokeweight-selector {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
-
-.header {
-  background-color: #999;
-}
-
-
