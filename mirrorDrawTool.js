@@ -1,7 +1,7 @@
 function mirrorDrawTool() {
 	this.name = "mirrorDraw";
-	this.icon = "assets/mirrorDraw.jpg";
-	this.strokeWeight = 1;
+	this.icon = "assets/mirrorDraw.png";
+
 	//which axis is being mirrored (x or y) x is default
 	this.axis = "x";
 	//line of symmetry is halfway across the screen
@@ -20,20 +20,19 @@ function mirrorDrawTool() {
 	var previousOppositeMouseX = -1;
 	var previousOppositeMouseY = -1;
 
-	const dropdownList = document.querySelector('dropdown-list');
-
-	// listen the self defined event
-	dropdownList.addEventListener('selectionChange', (event) => {
-		const selectedValue = event.detail.selectedValue;
-		console.log('mirror draw Selected value:', selectedValue);
-		this.strokeWeight = selectedValue;
-		strokeWeight(this.strokeWeight);
-	});
+	// const dropdownList = document.querySelector('dropdown-list');
+	//
+	// // listen the self defined event
+	// dropdownList.addEventListener('strokeWeightChange', (event) => {
+	// 	const selectedValue = event.detail.selectedValue;
+	// 	console.log('mirror draw Selected value:', selectedValue);
+	// 	this.strokeWeight = selectedValue;
+	// 	strokeWeight(this.strokeWeight);
+	// });
 
 	this.draw = function() {
 		//display the last save state of pixels
 		updatePixels();
-		strokeWeight(this.strokeWeight);
 		//do the drawing if the mouse is pressed
 		if (mouseIsPressed) {
 			//if the previous values are -1 set them to the current mouse location

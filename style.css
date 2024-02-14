@@ -62,6 +62,12 @@ html, body {
 .toolbox {
 	display: flex;
 	flex-direction: row;
+	gap: 15px;
+}
+
+.toolBarItem{
+	max-height: 50px;
+	max-Width:50px;
 }
 
 .toolBarItem img{
@@ -110,6 +116,25 @@ html, body {
 .strokeweight-selector {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.strokeColor {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.fillColor {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.stroke-fill-color {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }

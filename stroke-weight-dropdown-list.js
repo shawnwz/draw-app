@@ -28,7 +28,7 @@ class StrokeWeightDropdownList extends HTMLElement {
 
     this.dropdownElement.addEventListener("change", (event) => {
       const selectedValue = event.target.value;
-      this.dispatchEvent(new CustomEvent("selectionChange", {
+      this.dispatchEvent(new CustomEvent("strokeWeightChange", {
         bubbles: true,
         detail: { selectedValue }
       }))

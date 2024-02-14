@@ -6,6 +6,8 @@ function Toolbox() {
 	this.tools = [];
 	this.selectedTool = null;
 
+	this.defaultColor = 0;
+
 	var toolbarItemClick = function() {
 		//remove any existing borders
 		var items = selectAll(".toolBarItem");
@@ -48,7 +50,8 @@ function Toolbox() {
 	};
 
 	this.selectTool = function(toolName) {
-
+		cursor(CROSS);
+		stroke(this.defaultColor);
 		const dropdownList = document.querySelector('dropdown-list');
 		console.log(dropdownList);
 
@@ -68,7 +71,7 @@ function Toolbox() {
 				}
 				//select the tool and highlight it on the toolbar
 				this.selectedTool = this.tools[i];
-				select("#" + toolName + "toolBarItem").style("border", "2px solid blue");
+				select("#" + toolName + "toolBarItem").style("border", "2px solid red");
 
 				//if the tool has an options area. Populate it now.
 				if (this.selectedTool.hasOwnProperty("populateOptions")) {

@@ -8,15 +8,18 @@
 
     <!-- add extra scripts below -->
     <script src="toolbox.js"></script>
-    <script src="colourPicker.js"></script>
+<!--    <script src="colourPicker.js"></script>-->
     <script src="colourPalette.js"></script>
     <script src="helperFunctions.js"></script>
+    <script src="strokeColorPicker.js"></script>
 
     <script src="freehandTool.js"></script>
     <script src="lineToTool.js"></script>
     <script src="sprayCanTool.js"></script>
     <script src="mirrorDrawTool.js"></script>
     <script src="rectTool.js"></script>
+    <script src="eraserTool.js"></script>
+    <script src="ellipseTool.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -48,14 +51,26 @@
           <div class="common-options">
             <div class="strokeweight-selector">
               <p>Stroke Weight</p>
-              <dropdown-list options='[{"value": "1", "text": "1"}, {"value": "2", "text": "2"}, {"value": "3", "text": "3"}, {"value": "4", "text": "4"}, {"value": "5", "text": "5"}, {"value": "6", "text": "6"}, {"value": "7", "text": "7"}, {"value": "8", "text": "8"}, {"value": "9", "text": "9"}, {"value": "10", "text": "10"} ]'></dropdown-list>
+              <dropdown-list options='[{"value": "1", "text": "1"}, {"value": "2", "text": "2"}, {"value": "3", "text": "3"}, {"value": "4", "text": "4"}, {"value": "5", "text": "5"}, {"value": "6", "text": "6"}, {"value": "7", "text": "7"}, {"value": "8", "text": "8"}, {"value": "9", "text": "9"}, {"value": "10", "text": "10"},{"value": "0", "text": "0"}]'></dropdown-list>
             </div>
           </div>
           <div class="mirror-options"></div>
         </div>
         <div class="divider"></div>
         <div class="colorContainter">
-          <div class="colourPicker"></div>
+          <div class="stroke-fill-color">
+            <div class="strokeColor">
+              <p>Stroke Color</p>
+              <div class="strokeColorPicker" id="strokeColorPicker"></div>
+            </div>
+            <div class="fillColor">
+              <p>Fill Color</p>
+              <div class="fillColorPicker" id="fillColorPicker"></div>
+            </div>
+          </div>
+
+
+<!--          <div class="colourPicker"></div>-->
           <div class="colourPalette">
             <div class="flex-up-row">
             </div>
@@ -84,7 +99,7 @@
       const dropdownList = document.querySelector('dropdown-list');
 
       // 监听自定义事件
-      dropdownList.addEventListener('selectionChange', (event) => {
+      dropdownList.addEventListener('strokeWeightChange', (event) => {
         const selectedValue = event.detail.selectedValue;
         console.log('Selected value:', selectedValue);
         // 在这里你可以将 selectedValue 设置为你需要的变量

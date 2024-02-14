@@ -19,9 +19,15 @@ function colourPicker() {
 
     function setColor() {
         fill(picker.color());
-        stroke(picker.color());
+        //stroke(picker.color());
+        this.dispatchEvent(new CustomEvent("strokeColorChange", {
+            bubbles: true,
+            detail: picker.color(),
+        }))
     }
 
     this.loadPicker();
     
 }
+
+//customElements.define("stroke-color-picker", colourPicker);

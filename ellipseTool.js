@@ -1,39 +1,33 @@
-//a tool for drawing rectangle to the screen. Allows the user to preview
-//the rectangle to the current mouse position before drawing the line to the
-//pixel array.
-function RectAngleTool(){
-  this.icon = "assets/rectangle.png";
-  this.name = "Rectangle";
+function EllipseTool(){
+  this.icon = "assets/ellipse.png";
+  this.name = "Ellipse";
 
   var startMouseX = -1;
   var startMouseY = -1;
   var drawing = false;
 
-  //draws the rectangle to the screen
-  this.draw = function(){
+  cursor(CROSS);
 
+  //draws the rectangle to the screen
+  this.draw = function() {
     //only draw when mouse is clicked
-    if(mouseIsPressed){
+    if (mouseIsPressed) {
       //if it's the start of drawing a new line
-      if(startMouseX == -1){
+      if (startMouseX == -1) {
         startMouseX = mouseX;
         startMouseY = mouseY;
         drawing = true;
         //save the current pixel Array
         loadPixels();
-      }
-
-      else{
+      } else {
         //update the screen with the saved pixels to hide any previous
         //line between mouse pressed and released
         updatePixels();
-        //draw the rectangle
-        rect(startMouseX, startMouseY, mouseX-startMouseX, mouseY-startMouseY);
+        //draw the ellipse
+        ellipse(startMouseX, startMouseY, 2*(mouseX - startMouseX), 2*(mouseY - startMouseY));
       }
 
-    }
-
-    else if(drawing){
+    } else if (drawing) {
       //save the pixels with the most recent line and reset the
       //drawing bool and start locations
       loadPixels();
@@ -41,7 +35,5 @@ function RectAngleTool(){
       startMouseX = -1;
       startMouseY = -1;
     }
-  };
-
-
+  }
 }

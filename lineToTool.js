@@ -2,25 +2,12 @@
 //the a line to the current mouse position before drawing the line to the 
 //pixel array.
 function LineToTool(){
-	this.icon = "assets/lineTo.jpg";
+	this.icon = "assets/lineTo.png";
 	this.name = "LineTo";
-	this.strokeWeight = 1;
 
 	var startMouseX = -1;
 	var startMouseY = -1;
 	var drawing = false;
-
-
-	const dropdownList = document.querySelector('dropdown-list');
-
-	// listen the self defined event
-	dropdownList.addEventListener('selectionChange', (event) => {
-		const selectedValue = event.detail.selectedValue;
-		console.log('lineTo Selected value:', selectedValue);
-		this.strokeWeight = selectedValue;
-		strokeWeight(this.strokeWeight);
-	});
-
 
 	//draws the line to the screen 
 	this.draw = function(){
@@ -39,7 +26,6 @@ function LineToTool(){
 				//update the screen with the saved pixels to hide any previous
 				//line between mouse pressed and released
 				updatePixels();
-				strokeWeight(this.strokeWeight);
 				//draw the line
 				line(startMouseX, startMouseY, mouseX, mouseY);
 			}
