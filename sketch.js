@@ -42,6 +42,7 @@ function setup() {
 	toolbox.addTool(new RectAngleTool());
 	toolbox.addTool(new EllipseTool());
 	toolbox.addTool(new EraserTool());
+	toolbox.addTool(new TextTool());
 
 
 	background(255);
@@ -70,9 +71,12 @@ function setup() {
 
 
 
+
+
 }
 
 function draw() {
+	document.getElementById("coordinate").innerHTML =  "Pointer: " + floor(mouseX) + " " + floor(mouseY);
 	//call the draw function from the selected tool.
 	//hasOwnProperty is a javascript function that tests
 	//if an object contains a particular method or property

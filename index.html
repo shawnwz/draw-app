@@ -20,6 +20,7 @@
     <script src="rectTool.js"></script>
     <script src="eraserTool.js"></script>
     <script src="ellipseTool.js"></script>
+    <script src="textTool.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -77,10 +78,19 @@
             <div class="flex-down-row">
             </div>
           </div>
+          <div class="textToolOptions" id="textToolOptions"></div>
         </div>
 
       </div>
       <div class="content" id="content"></div>
+      <div class="footer" id="footer">
+        <div class="point-position" id="point-position">
+          <p id="coordinate"></p>
+        </div>
+        <div class="tool-name" id="tool-name">
+          <p id="toolname"></p>
+        </div>
+      </div>
       
       <!-- <div class="box header">My Drawing App
 
@@ -104,6 +114,10 @@
         console.log('Selected value:', selectedValue);
         // 在这里你可以将 selectedValue 设置为你需要的变量
       });
+    </script>
+
+    <script>
+
     </script>
   </body>
 </html>
