@@ -1,5 +1,5 @@
 function TextTool() {
-  this.icon = "assets/freehand.png";
+  this.icon = "assets/text.png";
   this.name = "Text";
 
   this.draw = function () {

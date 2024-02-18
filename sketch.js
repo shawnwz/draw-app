@@ -5,6 +5,7 @@ var colourP = null;
 var helpers = null;
 
 function setup() {
+	pixelDensity(1);
 	strokeColor = color(0, 0, 0);
 	fillColor = color(255, 255, 255)
 	weight = 1;
@@ -43,6 +44,8 @@ function setup() {
 	toolbox.addTool(new EllipseTool());
 	toolbox.addTool(new EraserTool());
 	toolbox.addTool(new TextTool());
+	toolbox.addTool(new ScissorTool());
+	toolbox.addTool(new BucketTool());
 
 
 	background(255);
