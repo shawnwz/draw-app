@@ -10,11 +10,11 @@ function BucketTool() {
 
   this.draw = function (){
     cursor(ARROW);
-    if(mouseIsPressed && mouseX>0 && mouseY>0){
-      console.log("pressed...");
-      console.log('fill color', this.fillColor.levels);
-      this.bucketFill(floor(mouseX), floor(mouseY));
-    }
+    // if(mouseIsPressed && mouseX>0 && mouseY>0){
+    //   console.log("pressed...");
+    //   console.log('fill color', this.fillColor.levels);
+    //   this.bucketFill(floor(mouseX), floor(mouseY));
+    // }
   }
   // reference algorithm https://en.wikipedia.org/wiki/Flood_fill
   this.bucketFill = function(x,y){
@@ -30,10 +30,11 @@ function BucketTool() {
 
 
 
-    const toFill = [];
+    let toFill = [];
     toFill.push(spAddress);
 
     let checked = [];
+    //checked.push(spAddress);
 
 
 
@@ -42,22 +43,23 @@ function BucketTool() {
       let currentColor = this.getColor(current);
       const ns = this.getNeighbors(current);
 
-      if (red(currentColor) === red(startColor) && green(currentColor) === green(startColor) && blue(currentColor) === blue(startColor)) {
-        this.setColor(current, this.fillColor.levels);
-        ns.forEach(n => {
-          if(n>0 && n< pixels.length){
-            console.log(toFill.length);
-            toFill.push(n);
-          }
-        })
+      if (!checkHistory(current, checked)) {
+        checked.push(current);
+        if (red(currentColor) === red(startColor) && green(currentColor) === green(startColor) && blue(currentColor) === blue(startColor)) {
+          this.setColor(current, this.fillColor.levels);
+          ns.forEach(n => {
+            if(!checkHistory(n, checked) && n>0 && n< pixels.length ){
+              //console.log(toFill.length);
+              toFill.push(n);
+            }
+          })
+        }
       }
-      //console.log('to fill length', toFill.length);
-      if(toFill.length>99999){
-        break;
-      }
+
     }
 
     updatePixels()
+
 
   }
 
@@ -118,6 +120,21 @@ function BucketTool() {
     ns.push(p+(width*4));
 
     return ns;
+  }
+
+  function checkHistory(add, arr){
+    for (var i = 0 ; i < arr.length; i++){
+      if(add == arr[i]){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
+  this.mouseClicked = function () {
+    this.bucketFill(floor(mouseX), floor(mouseY));
   }
 
 }

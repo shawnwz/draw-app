@@ -91,6 +91,14 @@ function draw() {
 	}
 }
 
+function mouseClicked() {
+	if (toolbox.selectedTool!=null && toolbox.selectedTool.hasOwnProperty("mouseClicked")) {
+		toolbox.selectedTool.mouseClicked();
+	} else if(toolbox.selectedTool!=null && !toolbox.selectedTool.hasOwnProperty("mouseClicked")) {
+		alert("it doesn't look like your tool has a mouse clicked method!");
+	}
+}
+
 function updateStrokeColor() {
 	// Callback function for the stroke color change
 	let selectedColor = this.color();

@@ -90,6 +90,8 @@ function mirrorDrawTool() {
 
 	};
 
+	this.mouseClicked = function () {}
+
 	/*calculate an opposite coordinate the other side of the
 	 *symmetry line.
 	 *@param n number: location for either x or y coordinate

@@ -43,5 +43,5 @@ function LineToTool(){
 		}
 	};
 
-
+	this.mouseClicked = function () {}
 }

@@ -80,4 +80,6 @@ function ScissorTool() {
     select("#scissorToolOptions").html("");
   }
 
+  this.mouseClicked = function () {}
+
 }

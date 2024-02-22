@@ -16,4 +16,6 @@ function SprayCanTool(){
 			}
 		}
 	};
+
+	this.mouseClicked = function () {};
 }

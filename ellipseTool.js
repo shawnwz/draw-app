@@ -37,4 +37,6 @@ function EllipseTool(){
       startMouseY = -1;
     }
   }
+
+  this.mouseClicked = function () {}
 }

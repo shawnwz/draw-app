@@ -38,4 +38,6 @@ function FreehandTool(){
 			previousMouseY = -1;
 		}
 	};
+
+	this.mouseClicked = function () {}
 }

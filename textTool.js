@@ -41,5 +41,7 @@ function TextTool() {
     this.textInputBox.parent("#textToolOptions");
     this.inputBox = createInput("");
     this.inputBox.parent("#textToolOptions");
-  }
+  };
+
+  this.mouseClicked = function () {};
 }

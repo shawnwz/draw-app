@@ -43,5 +43,6 @@ function RectAngleTool(){
     }
   };
 
+  this.mouseClicked = function () {}
 
 }

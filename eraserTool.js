@@ -28,4 +28,6 @@ function EraserTool() {
     stroke('black');
   }
 
+  this.mouseClicked = function () {}
+
 }
