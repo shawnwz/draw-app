@@ -13,7 +13,7 @@ function ScissorTool() {
 
     if(mouseIsPressed) {
       if(this.selectMode==0) {
-        //alert("Please select area first.");
+        //automatically set mode to 1
         this.selectMode +=1;
         this.selectButton.html("cut");
       } else if (this.selectMode==1 && mouseX>0 && mouseY>0) {

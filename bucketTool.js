@@ -5,38 +5,23 @@ function BucketTool() {
   document.addEventListener('fillColorChange', (event) => {
     console.log('bucket tool fillColorChange event :', event.detail);
     this.fillColor =event.detail;
-    //fill(this.fillColor);
   });
 
   this.draw = function (){
     cursor(ARROW);
-    // if(mouseIsPressed && mouseX>0 && mouseY>0){
-    //   console.log("pressed...");
-    //   console.log('fill color', this.fillColor.levels);
-    //   this.bucketFill(floor(mouseX), floor(mouseY));
-    // }
   }
   // reference algorithm https://en.wikipedia.org/wiki/Flood_fill
   this.bucketFill = function(x,y){
-    console.log("floodddd...");
-    console.log("xy  is ", x, y);
-    console.log("fill color is ", this.fillColor);
-
     loadPixels();
-
 
     const spAddress = this.getPixelAddress(x,y);
     const startColor = this.getColor(spAddress);
 
-
-
     let toFill = [];
     toFill.push(spAddress);
 
+    // checked array is used to store already checked point, so that it won't be checked again
     let checked = [];
-    //checked.push(spAddress);
-
-
 
     while (toFill.length) {
       let current = toFill.pop();
@@ -49,7 +34,6 @@ function BucketTool() {
           this.setColor(current, this.fillColor.levels);
           ns.forEach(n => {
             if(!checkHistory(n, checked) && n>0 && n< pixels.length ){
-              //console.log(toFill.length);
               toFill.push(n);
             }
           })
@@ -59,39 +43,6 @@ function BucketTool() {
     }
 
     updatePixels()
-
-
-  }
-
-  this.expandToNeighbours = function(queue,current){
-    x = current.x
-    y = current.y
-
-    if(x-1>0){
-      queue.push(createVector(x-1,y))
-    }
-
-    if(x+1<width){
-      queue.push(createVector(x+1,y))
-    }
-
-    if(y-1>0){
-      queue.push(createVector(x,y-1))
-    }
-
-    if(y+1<height){
-      queue.push(createVector(x,y+1))
-    }
-
-    return queue
-  }
-  function arrayEquals(a, b) {
-    return (
-        Array.isArray(a) &&
-        Array.isArray(b) &&
-        a.length === b.length &&
-        a.every((val, index) => val === b[index])
-    );
   }
 
   this.getPixelAddress = function (x,y) {
@@ -133,8 +84,8 @@ function BucketTool() {
     }
   }
 
+  // override mouseClicked function here.
   this.mouseClicked = function () {
     this.bucketFill(floor(mouseX), floor(mouseY));
   }
-
 }

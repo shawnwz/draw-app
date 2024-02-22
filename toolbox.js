@@ -49,7 +49,6 @@ function Toolbox() {
 	};
 
 	this.selectTool = function(toolName) {
-		//cursor(CROSS);
 		//search through the tools for one that's name matches
 		//toolName
 		for (var i = 0; i < this.tools.length; i++) {
@@ -74,9 +73,5 @@ function Toolbox() {
 			document.getElementById("toolname").innerHTML =  "Tool: " + this.selectedTool.name;
 		}
 	};
-
-
-
-
 
 }

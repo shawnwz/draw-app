@@ -7,7 +7,6 @@ function EraserTool() {
     noStroke();
     bgColor = 255;
 
-    cursor('assets/sprayCan.jpg')
     if(mouseIsPressed){
       this.drawEraser();
     }

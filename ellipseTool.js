@@ -6,12 +6,10 @@ function EllipseTool(){
   var startMouseY = -1;
   var drawing = false;
 
-  //cursor(CROSS);
-
-  //draws the rectangle to the screen
+  //draws the ellipse to the screen
   this.draw = function() {
     cursor(ARROW);
-    //only draw when mouse is clicked
+    //only draw when mouse is pressed
     if (mouseIsPressed) {
       //if it's the start of drawing a new line
       if (startMouseX == -1) {

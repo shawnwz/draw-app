@@ -29,5 +29,3 @@ function colourPicker() {
     this.loadPicker();
     
 }
-
-//customElements.define("stroke-color-picker", colourPicker);

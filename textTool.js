@@ -13,7 +13,7 @@ function TextTool() {
   this.unselectTool = function () {
     select("#textToolOptions").html("");
   }
-
+  // populate text options to the header
   this.populateOptions = function () {
     this.textSizeAndPosition = createDiv();
     this.textSizeAndPosition.parent("#textToolOptions");
