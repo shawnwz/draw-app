@@ -9,6 +9,7 @@ function BucketTool() {
   });
 
   this.draw = function (){
+    cursor(ARROW);
     if(mouseIsPressed && mouseX>0 && mouseY>0){
       console.log("pressed...");
       console.log('fill color', this.fillColor.levels);

@@ -7,13 +7,15 @@ function ScissorTool() {
 
   this.selectedArea = {x: 0, y:0, w: 100, h: 100};
   this.draw = function(){
-
+    cursor(CROSS);
     noFill();
     stroke(0);
 
     if(mouseIsPressed) {
       if(this.selectMode==0) {
-        console.log("draw selected mode is 0, please select area first");
+        //alert("Please select area first.");
+        this.selectMode +=1;
+        this.selectButton.html("cut");
       } else if (this.selectMode==1 && mouseX>0 && mouseY>0) {
         if(previousMouseX == -1){
           previousMouseX = mouseX;

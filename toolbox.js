@@ -44,12 +44,12 @@ function Toolbox() {
 		//if no tool is selected (ie. none have been added so far)
 		//make this tool the selected one.
 		if (this.selectedTool == null) {
-			this.selectTool(tool.name);
+			//this.selectTool(tool.name);
 		}
 	};
 
 	this.selectTool = function(toolName) {
-		cursor(CROSS);
+		//cursor(CROSS);
 		//search through the tools for one that's name matches
 		//toolName
 		for (var i = 0; i < this.tools.length; i++) {
@@ -61,7 +61,7 @@ function Toolbox() {
 				}
 				//select the tool and highlight it on the toolbar
 				this.selectedTool = this.tools[i];
-				select("#" + toolName + "toolBarItem").style("border", "2px solid red");
+				select("#" + toolName + "toolBarItem").style("border", "2px solid blue");
 
 				//if the tool has an options area. Populate it now.
 				if (this.selectedTool.hasOwnProperty("populateOptions")) {

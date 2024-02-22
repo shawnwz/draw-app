@@ -31,6 +31,7 @@ function mirrorDrawTool() {
 	// });
 
 	this.draw = function() {
+		cursor(ARROW);
 		//display the last save state of pixels
 		updatePixels();
 		//do the drawing if the mouse is pressed

@@ -84,9 +84,9 @@ function draw() {
 	//hasOwnProperty is a javascript function that tests
 	//if an object contains a particular method or property
 	//if there isn't a draw method the app will alert the user
-	if (toolbox.selectedTool.hasOwnProperty("draw")) {
+	if (toolbox.selectedTool!=null && toolbox.selectedTool.hasOwnProperty("draw")) {
 		toolbox.selectedTool.draw();
-	} else {
+	} else if(toolbox.selectedTool!=null && !toolbox.selectedTool.hasOwnProperty("draw")) {
 		alert("it doesn't look like your tool has a draw method!");
 	}
 }

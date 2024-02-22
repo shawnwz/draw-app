@@ -11,7 +11,7 @@ function RectAngleTool(){
 
   //draws the rectangle to the screen
   this.draw = function(){
-
+    cursor(ARROW);
     //only draw when mouse is clicked
     if(mouseIsPressed){
       //if it's the start of drawing a new line

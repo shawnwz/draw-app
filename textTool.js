@@ -3,7 +3,7 @@ function TextTool() {
   this.name = "Text";
 
   this.draw = function () {
-
+    cursor(ARROW);
     updatePixels();
     textAlign(CENTER);
     textSize(this.textSizeSlider.value());

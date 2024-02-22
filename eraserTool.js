@@ -3,6 +3,7 @@ function EraserTool() {
   this.name = "eraser";
 
   this.draw = function(){
+    cursor(HAND);
     noStroke();
     bgColor = 255;
 
