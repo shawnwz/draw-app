@@ -71,11 +71,6 @@ function setup() {
 		this.weight= event.detail.selectedValue;
 		strokeWeight(Number(this.weight));
 	});
-
-
-
-
-
 }
 
 function draw() {
@@ -99,6 +94,7 @@ function mouseClicked() {
 	}
 }
 
+//event dispatcher for stroke color change
 function updateStrokeColor() {
 	// Callback function for the stroke color change
 	let selectedColor = this.color();
@@ -107,6 +103,7 @@ function updateStrokeColor() {
 	document.dispatchEvent(colorChangeEvent);
 }
 
+//event dispatcher for fill color change
 function updateFillColor() {
 	// Callback function for the fill color change
 	let selectedColor = this.color();

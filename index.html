@@ -94,28 +94,16 @@
           <p id="toolname"></p>
         </div>
       </div>
-      
-      <!-- <div class="box header">My Drawing App
-
-        <button id="clearButton">Clear</button>
-        <button id="saveImageButton">Save Image</button>
-      </div>
-      <div class="box" id="sidebar"></div>
-      <div id="content"></div>
-      <div class="box colourPalette"></div>
-      <div class="box options"></div> -->
-
 	</div>
 
     <script>
-      // 获取自定义元素
+      // get the self defined element
       const dropdownList = document.querySelector('dropdown-list');
 
-      // 监听自定义事件
+      // listen to event
       dropdownList.addEventListener('strokeWeightChange', (event) => {
         const selectedValue = event.detail.selectedValue;
         console.log('Selected value:', selectedValue);
-        // 在这里你可以将 selectedValue 设置为你需要的变量
       });
     </script>
 
